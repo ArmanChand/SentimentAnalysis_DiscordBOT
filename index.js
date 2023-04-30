@@ -27,7 +27,7 @@ client.on('ready', () => {
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
 
-  if (message.content.startsWith('!sentiment')) {
+  if (message.content.toLowerCase().startsWith('!sentiment')) {
     const query = message.content.slice(10).trim();
     await connectToMindsDBCloud();
     const response = await analyzeTextSentiment(query); 
